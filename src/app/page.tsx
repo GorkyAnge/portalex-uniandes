@@ -4,6 +4,7 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 import PDF from "@/components/PDF"; // El componente PDF donde definirás cómo se ve el PDF
 import Form from "@/components/Form";
 import useClient from "@/hooks/useClient";
+import Button from "@/components/Button";
 
 export default function Home() {
   const isClient = useClient();
@@ -25,7 +26,10 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center my-10">
+      <h1 className="text-3xl font-bold mb-5 text-[#0c356a]">
+        Generador de Portadas de Procesos Legales
+      </h1>
       <Form formData={formData} setFormData={setFormData} />
 
       {isClient && (
@@ -35,13 +39,9 @@ export default function Home() {
         >
           {({ loading }) =>
             loading ? (
-              <button className="px-4 py-2 bg-gray-500 text-white rounded">
-                Cargando Documento...
-              </button>
+              <Button>Cargando Documento...</Button>
             ) : (
-              <button className="px-4 py-2 bg-blue-500 text-white rounded">
-                Descargar Documento
-              </button>
+              <Button>Descargar Documento</Button>
             )
           }
         </PDFDownloadLink>
