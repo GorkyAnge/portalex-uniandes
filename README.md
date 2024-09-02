@@ -1,6 +1,7 @@
 # PortaLex Uniandes
 
 PortaLex Uniandes es una aplicación diseñada para el Consultorio Jurídico Uniandes Tulcán. Su objetivo es generar automáticamente portadas de procesos legales, facilitando la gestión y organización de documentos. El nombre "PortaLex" proviene de la combinación de "Porta" (de portadas) y "Lex" (ley en latín), lo que refleja su propósito de simplificar la creación de documentos legales.
+
 ![image](https://github.com/user-attachments/assets/8e40da00-fded-4328-9c6e-91583da70744)
 ![image](https://github.com/user-attachments/assets/2266c654-b722-4eec-8e1a-71b04dc2967d)
 
