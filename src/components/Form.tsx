@@ -21,10 +21,30 @@ export default function Form({ formData, setFormData }: FormProps) {
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
+
     setFormData((prevFormData) => ({
       ...prevFormData,
       [name]: value.toUpperCase(),
     }));
+  };
+
+  const handleCausaChange = (
+    e: ChangeEvent<HTMLSelectElement | HTMLInputElement>
+  ) => {
+    const { name, value } = e.target;
+
+    if (name === "causa") {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        causa: value,
+        causaPersonalizada: value === "otro" ? "" : ("" as string),
+      }));
+    } else if (name === "causaPersonalizada") {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        causaPersonalizada: value.toUpperCase(),
+      }));
+    }
   };
 
   return (
@@ -79,7 +99,7 @@ export default function Form({ formData, setFormData }: FormProps) {
         <select
           name="causa"
           value={formData.causa}
-          onChange={handleChange}
+          onChange={handleCausaChange}
           className="w-full px-3 py-2 border rounded"
         >
           <option value="">Selecciona una causa</option>
@@ -95,7 +115,7 @@ export default function Form({ formData, setFormData }: FormProps) {
             type="text"
             name="causaPersonalizada"
             value={formData.causaPersonalizada || ""}
-            onChange={handleChange}
+            onChange={handleCausaChange}
             className="w-full mt-2 px-3 py-2 border rounded"
             placeholder="Especifica la causa"
           />
