@@ -21,9 +21,10 @@ export default function Home() {
 
   // Función para generar el nombre del archivo
   const generateFileName = () => {
-    const { numero, usuario, actor } = formData;
+    const { numeroProceso, usuario, causa } = formData;
     const sanitizedUsuario = usuario.replace(/[^a-zA-Z0-9]/g, "_"); // Reemplaza caracteres no permitidos en nombres de archivo
-    return `Reporte_${numero}_${sanitizedUsuario}_${actor}.pdf`;
+    const sanitizedCausa = causa.replace(/[^a-zA-Z0-9]/g, "_"); // Reemplaza caracteres no permitidos en nombres de archivo
+    return `${sanitizedUsuario}_${sanitizedCausa}_${numeroProceso}.pdf`;
   };
 
   return (
