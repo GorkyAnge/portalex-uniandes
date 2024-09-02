@@ -5,5 +5,6 @@ export interface FormData {
   actor: string;
   demandado: string;
   causa: string;
+  causaPersonalizada: string;
   numeroProceso: string;
 }

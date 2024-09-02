@@ -6,12 +6,24 @@ interface FormProps {
   setFormData: React.Dispatch<React.SetStateAction<FormData>>;
 }
 
+const causas = [
+  "ACTIVACIÓN CÓDIGO SUPA",
+  "ALIMENTOS",
+  "DIVORCIO POR CAUSAL",
+  "EXTINCIÓN PENSIÓN ALIMENTICIA",
+  "INCIDENTE DE AUMENTO DE PENSIONES ALIMENTICIAS",
+  "MEDIDAS DE PROTECCIÓN",
+  "VIOLENCIA INTRAFAMILIAR",
+];
+
 export default function Form({ formData, setFormData }: FormProps) {
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({
       ...prevFormData,
-      [name]: value,
+      [name]: value.toUpperCase(),
     }));
   };
 
@@ -25,6 +37,7 @@ export default function Form({ formData, setFormData }: FormProps) {
           value={formData.numero}
           onChange={handleChange}
           className="w-full px-3 py-2 border rounded"
+          placeholder="001-2024-CT"
         />
       </div>
 
@@ -63,13 +76,30 @@ export default function Form({ formData, setFormData }: FormProps) {
 
       <div className="mb-4">
         <label className="block text-gray-700">Causa:</label>
-        <input
-          type="text"
+        <select
           name="causa"
           value={formData.causa}
           onChange={handleChange}
           className="w-full px-3 py-2 border rounded"
-        />
+        >
+          <option value="">Selecciona una causa</option>
+          {causas.map((causa, index) => (
+            <option key={index} value={causa}>
+              {causa}
+            </option>
+          ))}
+          <option value="otro">Otra (especificar)</option>
+        </select>
+        {formData.causa === "otro" && (
+          <input
+            type="text"
+            name="causaPersonalizada"
+            value={formData.causaPersonalizada || ""}
+            onChange={handleChange}
+            className="w-full mt-2 px-3 py-2 border rounded"
+            placeholder="Especifica la causa"
+          />
+        )}
       </div>
 
       <div className="mb-4">
@@ -80,6 +110,7 @@ export default function Form({ formData, setFormData }: FormProps) {
           value={formData.numeroProceso}
           onChange={handleChange}
           className="w-full px-3 py-2 border rounded"
+          placeholder="00001-2024-00001"
         />
       </div>
     </form>

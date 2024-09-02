@@ -15,6 +15,7 @@ export default function Home() {
     actor: "",
     demandado: "",
     causa: "",
+    causaPersonalizada: "",
     numeroProceso: "",
   });
 
@@ -26,9 +27,9 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col items-center my-10">
-      <h1 className="text-3xl font-bold mb-5 text-[#0c356a]">
-        Generador de Portadas de Procesos Legales
+    <div className="flex flex-col justify-center items-center my-10">
+      <h1 className="text-2xl font-bold mb-5 text-[#0c356a]">
+        GENERADOR DE PORTADAS DE PROCESOS LEGALES
       </h1>
       <Form formData={formData} setFormData={setFormData} />
 

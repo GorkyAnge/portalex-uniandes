@@ -3,13 +3,13 @@ import { GoLaw } from "react-icons/go";
 
 const Header = () => {
   return (
-    <header className="bg-white ">
+    <header className="bg-gray-100 ">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="md:flex md:items-center md:gap-12">
             <a className="flex justify-center text-[#0c356a] text-3xl" href="/">
               <span className="sr-only">Home</span>
-              <GoLaw /> <span className="ml-5">PortaLex</span>
+              <GoLaw /> <h1 className="ml-5">PortaLex</h1>
             </a>
           </div>
 

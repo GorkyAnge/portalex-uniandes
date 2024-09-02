@@ -60,6 +60,10 @@ const styles = StyleSheet.create({
 });
 
 export default function PDF({ formData }: { formData: any }) {
+  // Determinar la causa final a mostrar en el PDF
+  const causaFinal =
+    formData.causa === "otro" ? formData.causaPersonalizada : formData.causa;
+
   return (
     <Document>
       <Page style={styles.page}>
@@ -90,7 +94,7 @@ export default function PDF({ formData }: { formData: any }) {
         <View style={styles.section}>
           <View style={styles.row}>
             <Text style={styles.label}>CAUSA: </Text>
-            <Text style={styles.text}>{formData.causa}</Text>
+            <Text style={styles.text}>{causaFinal}</Text>
           </View>
         </View>
 
